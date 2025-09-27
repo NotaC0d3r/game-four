@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 200.0
-@export var jump_speed: float = 360.0
+@export var move_speed: float = 100.0
+@export var jump_speed: float = 210.0
 @export var gravity: float = 900.0
 @export var throw_force: Vector2 = Vector2(280, -100)  # reduce for shorter throws
 
@@ -23,7 +23,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	# Flip to face move direction
 	if dir != 0:
 		sprite.scale.x = sign(dir)
 

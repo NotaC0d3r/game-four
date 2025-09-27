@@ -1,0 +1,194 @@
+[gd_scene load_steps=12 format=4 uid="uid://bqlkj0owmvkig"]
+
+[ext_resource type="Script" uid="uid://bjkhxl30gs30u" path="res://player.gd" id="1_elgsa"]
+[ext_resource type="Texture2D" uid="uid://cfwp15br446c0" path="res://characters.png" id="2_sck4r"]
+[ext_resource type="Texture2D" uid="uid://l6rjvbjejoc1" path="res://sheet.png" id="3_1mhn8"]
+[ext_resource type="Script" uid="uid://r8miutiop2g4" path="res://sacrifice.gd" id="4_0rof8"]
+[ext_resource type="Script" uid="uid://bcv875kly0aot" path="res://water.gd" id="5_w8cd7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(16, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kek77"]
+radius = 6.0827627
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
+texture = ExtResource("3_1mhn8")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:0/0 = 0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:0/0 = 0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+12:2/0 = 0
+12:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:2/0 = 0
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+8:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:3/0 = 0
+9:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7mycd"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lquwl")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4c57u"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(80, 32)
+
+[node name="Main" type="Node"]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(-4, 5)
+script = ExtResource("1_elgsa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_sck4r")
+region_enabled = true
+region_rect = Rect2(7, 40.166565, 19, 25.833435)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="GrabArea" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GrabArea"]
+position = Vector2(11, 5)
+shape = SubResource("CircleShape2D_kek77")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wEAAAAIAAAAAAD//wEAAAAIAAAAAAAAAAEAAAAIAAAAAAABAAEAAAAIAAAAAAACAAEAAAAIAAUAAAD9/wEAAAAIAAAAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAAAAAIAAAALAAEAAAD//wIAAAALAAEAAAABAAIAAAAHAAEAAAACAAIAAAAIAAYAAAADAAEAAAAIAAUAAAAHAAEAAAAIAAAAAAAIAAEAAAALAAEAAAD8/wEAAAAIAAAAAAD7/wEAAAAIAAAAAAD6/wEAAAAIAAAAAAD5/wEAAAAIAAAAAAD4/wEAAAAIAAAAAAD5/wIAAAALAAEAAAD6/wIAAAALAAEAAAD7/wIAAAALAAEAAAD8/wIAAAALAAEAAAADAAIAAAAIAAYAAAAHAAIAAAALAAEAAAAIAAIAAAALAAEAAAAEAAEAAAAIAAUAAAAFAAEAAAAIAAUAAAAGAAEAAAAIAAUAAAAEAAIAAAAIAAYAAAAFAAIAAAAIAAYAAAAGAAIAAAAIAAYAAAAIAAAAAAAKAAEAAAAIAP//AAAIAAEAAAAJAP//AAAIAAAAAAAKAP//AAAIAAAAAAALAP//AAAIAAAAAAAMAP//AAAIAAAAAAANAP//AAAJAAEAAAANAAAAAAAMAAEAAAANAAEAAAAMAAEAAAANAAIAAAAMAAEAAAANAAMAAAAMAAEAAAD8/wAAAAAOAAAAAAAMAAAAAAALAAEAAAALAAAAAAALAAEAAAAKAAAAAAALAAEAAAAJAAAAAAALAAEAAAAJAAEAAAALAAEAAAAJAAIAAAALAAEAAAAKAAIAAAALAAEAAAALAAIAAAALAAEAAAALAAEAAAALAAEAAAAKAAEAAAALAAEAAAAMAAEAAAALAAEAAAAMAAIAAAALAAEAAAAMAAMAAAALAAEAAAALAAMAAAALAAEAAAAKAAMAAAALAAEAAAAJAAMAAAALAAEAAAAIAAMAAAALAAEAAAAHAAMAAAALAAEAAAAGAAMAAAALAAEAAAAFAAMAAAALAAEAAAAEAAMAAAALAAEAAAADAAMAAAALAAEAAAACAAMAAAALAAEAAAABAAMAAAALAAEAAAAAAAMAAAALAAEAAAD//wMAAAALAAEAAAD+/wMAAAALAAEAAAD9/wMAAAALAAEAAAD8/wMAAAALAAEAAAD7/wMAAAALAAEAAAD5/wMAAAALAAEAAAD6/wMAAAALAAEAAAD4/wMAAAALAAEAAAD4/wIAAAALAAEAAAD+/wAAAAAOAAUAAAD6/wAAAAAOAAUAAAD7/wAAAAAQAAUAAAAJAP7/AAAPAAYAAAAKAP7/AAAOAAYAAAALAP7/AAAQAAYAAAAMAP7/AAAQAAUAAAA=")
+tile_set = SubResource("TileSet_7mycd")
+
+[node name="Sacrifice" type="RigidBody2D" parent="."]
+position = Vector2(23, 8)
+script = ExtResource("4_0rof8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sacrifice"]
+position = Vector2(0, -3)
+texture = ExtResource("2_sck4r")
+region_enabled = true
+region_rect = Rect2(6, 73, 18, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sacrifice"]
+shape = SubResource("CircleShape2D_4c57u")
+
+[node name="DecayTimer" type="Timer" parent="Sacrifice"]
+
+[node name="Water" type="Area2D" parent="."]
+script = ExtResource("5_w8cd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(72, 32)
+shape = SubResource("RectangleShape2D_efxa6")
