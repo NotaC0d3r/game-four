@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://db063qrb5fset"]
+
+[ext_resource type="Script" uid="uid://d1q771o6spbgj" path="res://options_menu.gd" id="1_7yx0y"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 381.0
+offset_top = 186.0
+offset_right = 421.0
+offset_bottom = 226.0
+scale = Vector2(6.9909954, 4.3765388)
+script = ExtResource("1_7yx0y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -53.926514
+offset_top = -41.12839
+offset_right = 284.0735
+offset_bottom = 146.87161
+scale = Vector2(0.4933591, 0.78064847)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls:
+Jump -> W or Space or Up
+Move Right -> D or Right
+Move Left -> A or Left
+Grab -> E
+Throw -> Q"
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
