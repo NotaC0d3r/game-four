@@ -50,3 +50,4 @@ throw={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.27281782, 0.7061886, 0.85522485, 1)

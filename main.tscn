@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://dd3m7ht8twbcc"]
+[gd_scene load_steps=12 format=4 uid="uid://dd3m7ht8twbcc"]
 
 [ext_resource type="Texture2D" uid="uid://cfwp15br446c0" path="res://characters.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bjkhxl30gs30u" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://l6rjvbjejoc1" path="res://sheet.png" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://r8miutiop2g4" path="res://sacrifice.gd" id="4_7mycd"]
 [ext_resource type="Script" uid="uid://bcv875kly0aot" path="res://water.gd" id="5_272bh"]
-[ext_resource type="Script" uid="uid://7ymx7adw8h1a" path="res://corpse_platform.gd" id="6_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 22)
@@ -144,13 +143,9 @@ radius = 8.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
 size = Vector2(80, 32)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7mycd"]
-radius = 8.0
-height = 24.0
-
 [node name="Main" type="Node"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(-4, 5)
 script = ExtResource("1_h2yge")
 
@@ -173,7 +168,7 @@ position = Vector2(11, 5)
 shape = SubResource("CircleShape2D_kek77")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD+/wEAAAAIAAAAAAD//wEAAAAIAAAAAAAAAAEAAAAIAAAAAAABAAEAAAAIAAAAAAACAAEAAAAIAAUAAAD9/wEAAAAHAAAAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAAAAAIAAAALAAEAAAD//wIAAAALAAEAAAABAAIAAAAHAAEAAAACAAIAAAAIAAYAAAADAAEAAAAIAAUAAAAHAAEAAAALAAAAAAAIAAEAAAALAAAAAAD8/wEAAAALAAAAAAD7/wEAAAALAAAAAAD6/wEAAAALAAAAAAD5/wEAAAALAAAAAAD4/wEAAAALAAAAAAD5/wIAAAALAAEAAAD6/wIAAAALAAEAAAD7/wIAAAALAAEAAAD8/wIAAAALAAEAAAADAAIAAAAIAAYAAAAHAAIAAAALAAEAAAAIAAIAAAAMAAEAAAAEAAEAAAAIAAUAAAAFAAEAAAAIAAUAAAAGAAEAAAAIAAUAAAAEAAIAAAAIAAYAAAAFAAIAAAAIAAYAAAAGAAIAAAAIAAYAAAA=")
+tile_map_data = PackedByteArray("AAD+/wEAAAAIAAAAAAD//wEAAAAIAAAAAAAAAAEAAAAIAAAAAAABAAEAAAAIAAAAAAACAAEAAAAIAAUAAAD9/wEAAAAIAAAAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAAAAAIAAAALAAEAAAD//wIAAAALAAEAAAABAAIAAAAHAAEAAAACAAIAAAAIAAYAAAADAAEAAAAIAAUAAAAHAAEAAAAIAAAAAAAIAAEAAAALAAEAAAD8/wEAAAAIAAAAAAD7/wEAAAAIAAAAAAD6/wEAAAAIAAAAAAD5/wEAAAAIAAAAAAD4/wEAAAAIAAAAAAD5/wIAAAALAAEAAAD6/wIAAAALAAEAAAD7/wIAAAALAAEAAAD8/wIAAAALAAEAAAADAAIAAAAIAAYAAAAHAAIAAAALAAEAAAAIAAIAAAALAAEAAAAEAAEAAAAIAAUAAAAFAAEAAAAIAAUAAAAGAAEAAAAIAAUAAAAEAAIAAAAIAAYAAAAFAAIAAAAIAAYAAAAGAAIAAAAIAAYAAAAIAAAAAAAKAAEAAAAIAP//AAAIAAEAAAAJAP//AAAIAAAAAAAKAP//AAAIAAAAAAALAP//AAAIAAAAAAAMAP//AAAIAAAAAAANAP//AAAJAAEAAAANAAAAAAAMAAEAAAANAAEAAAAMAAEAAAANAAIAAAAMAAEAAAANAAMAAAAMAAEAAAD8/wAAAAAOAAAAAAAMAAAAAAALAAEAAAALAAAAAAALAAEAAAAKAAAAAAALAAEAAAAJAAAAAAALAAEAAAAJAAEAAAALAAEAAAAJAAIAAAALAAEAAAAKAAIAAAALAAEAAAALAAIAAAALAAEAAAALAAEAAAALAAEAAAAKAAEAAAALAAEAAAAMAAEAAAALAAEAAAAMAAIAAAALAAEAAAAMAAMAAAALAAEAAAALAAMAAAALAAEAAAAKAAMAAAALAAEAAAAJAAMAAAALAAEAAAAIAAMAAAALAAEAAAAHAAMAAAALAAEAAAAGAAMAAAALAAEAAAAFAAMAAAALAAEAAAAEAAMAAAALAAEAAAADAAMAAAALAAEAAAACAAMAAAALAAEAAAABAAMAAAALAAEAAAAAAAMAAAALAAEAAAD//wMAAAALAAEAAAD+/wMAAAALAAEAAAD9/wMAAAALAAEAAAD8/wMAAAALAAEAAAD7/wMAAAALAAEAAAD5/wMAAAALAAEAAAD6/wMAAAALAAEAAAD4/wMAAAALAAEAAAD4/wIAAAALAAEAAAD+/wAAAAAOAAUAAAD6/wAAAAAOAAUAAAD7/wAAAAAQAAUAAAAJAP7/AAAPAAYAAAAKAP7/AAAOAAYAAAALAP7/AAAQAAYAAAAMAP7/AAAQAAUAAAA=")
 tile_set = SubResource("TileSet_7mycd")
 
 [node name="Sacrifice" type="RigidBody2D" parent="."]
@@ -197,20 +192,3 @@ script = ExtResource("5_272bh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
 position = Vector2(72, 32)
 shape = SubResource("RectangleShape2D_efxa6")
-
-[node name="CorpsePlatform" type="StaticBody2D" parent="."]
-script = ExtResource("6_5vw27")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CorpsePlatform"]
-position = Vector2(49, 19)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_7mycd")
-
-[node name="Sprite2D" type="Sprite2D" parent="CorpsePlatform"]
-position = Vector2(50, 19)
-rotation = 1.5707964
-texture = ExtResource("1_0xm2m")
-region_enabled = true
-region_rect = Rect2(679, 72, 17, 24)
-
-[node name="Timer" type="Timer" parent="CorpsePlatform"]
