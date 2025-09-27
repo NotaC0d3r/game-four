@@ -14,11 +14,11 @@ script = ExtResource("1_lbr8e")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = -54.784756
-offset_top = -35.187622
-offset_right = 283.21524
-offset_bottom = 100.81238
-scale = Vector2(0.4933591, 1)
+offset_left = -53.926514
+offset_top = -42.270847
+offset_right = 475.0735
+offset_bottom = 119.72916
+scale = Vector2(0.31026652, 0.91774327)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -26,9 +26,10 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "1. Move though the course!
-2. Grab pets that you find along the way!
-3. Sacrifice your pets by throwing them into
- the water to water to safely make it across!"
+2. Grab bodies that you find along the way!
+3. Sacrifice your bodies by throwing them into
+ the water to water to safely make it across!
+*You can only grab bodies when you are on the left side of them!*"
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

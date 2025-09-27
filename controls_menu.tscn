@@ -18,7 +18,7 @@ offset_left = -53.926514
 offset_top = -41.12839
 offset_right = 284.0735
 offset_bottom = 146.87161
-scale = Vector2(0.4933591, 0.78064847)
+scale = Vector2(0.4933591, 0.69839174)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -29,7 +29,8 @@ text = "Controls:
 Jump -> W or Space or Up
 Move Right -> D or Right
 Move Left -> A or Left
-Grab -> E
+Grab/Drop -> E   *You can only grab bodies 
+       when you are on the left side of them!*
 Throw -> Q"
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
