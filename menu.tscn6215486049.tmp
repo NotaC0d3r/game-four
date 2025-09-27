@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyh7x3hqmjsip"]
+
+[ext_resource type="Script" uid="uid://bwiq5vfxqwthe" path="res://menu.gd" id="1_lti8b"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 381.0
+offset_top = 45.000015
+offset_right = 421.0
+offset_bottom = 85.000015
+scale = Vector2(6.9909954, 4.3765388)
+script = ExtResource("1_lti8b")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -2.0025759
+offset_top = 16.22286
+offset_right = 71.99742
+offset_bottom = 152.22285
+scale = Vector2(0.7233725, 0.6685672)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Instructions" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Help"
+
+[node name="Controls" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Instructions" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
