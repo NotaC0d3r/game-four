@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=4 uid="uid://dd3m7ht8twbcc"]
+[gd_scene load_steps=14 format=4 uid="uid://dd3m7ht8twbcc"]
 
 [ext_resource type="Texture2D" uid="uid://cfwp15br446c0" path="res://characters.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bjkhxl30gs30u" path="res://player.gd" id="1_h2yge"]
 [ext_resource type="Texture2D" uid="uid://l6rjvbjejoc1" path="res://sheet.png" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://r8miutiop2g4" path="res://sacrifice.gd" id="4_7mycd"]
+[ext_resource type="Script" uid="uid://bcv875kly0aot" path="res://water.gd" id="5_272bh"]
+[ext_resource type="Script" uid="uid://7ymx7adw8h1a" path="res://corpse_platform.gd" id="6_5vw27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kek77"]
+radius = 6.0827627
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lquwl"]
 texture = ExtResource("2_h2yge")
@@ -132,9 +138,20 @@ texture = ExtResource("2_h2yge")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lquwl")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4c57u"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(80, 32)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7mycd"]
+radius = 8.0
+height = 24.0
+
 [node name="Main" type="Node"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-4, 5)
 script = ExtResource("1_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -149,6 +166,51 @@ region_rect = Rect2(7, 40.166565, 19, 25.833435)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 
+[node name="GrabArea" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GrabArea"]
+position = Vector2(11, 5)
+shape = SubResource("CircleShape2D_kek77")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD+/wEAAAAIAAAAAAD//wEAAAAIAAAAAAAAAAEAAAAIAAAAAAABAAEAAAAIAAAAAAACAAEAAAAJAAAAAAD9/wEAAAAHAAAAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAAAAAIAAAALAAEAAAD//wIAAAALAAEAAAABAAIAAAAHAAEAAAACAAIAAAAHAAEAAAADAAEAAAALAAAAAAAEAAEAAAALAAAAAAAFAAEAAAALAAAAAAAGAAEAAAALAAAAAAAHAAEAAAALAAAAAAAIAAEAAAALAAAAAAD8/wEAAAALAAAAAAD7/wEAAAALAAAAAAD6/wEAAAALAAAAAAD5/wEAAAALAAAAAAD4/wEAAAALAAAAAAD5/wIAAAALAAEAAAD6/wIAAAALAAEAAAD7/wIAAAALAAEAAAD8/wIAAAALAAEAAAADAAIAAAALAAEAAAAEAAIAAAALAAEAAAAFAAIAAAALAAEAAAAGAAIAAAALAAEAAAAHAAIAAAALAAEAAAAIAAIAAAAMAAEAAAA=")
+tile_map_data = PackedByteArray("AAD+/wEAAAAIAAAAAAD//wEAAAAIAAAAAAAAAAEAAAAIAAAAAAABAAEAAAAIAAAAAAACAAEAAAAIAAUAAAD9/wEAAAAHAAAAAAD9/wIAAAAHAAEAAAD+/wIAAAAHAAEAAAAAAAIAAAALAAEAAAD//wIAAAALAAEAAAABAAIAAAAHAAEAAAACAAIAAAAIAAYAAAADAAEAAAAIAAUAAAAHAAEAAAALAAAAAAAIAAEAAAALAAAAAAD8/wEAAAALAAAAAAD7/wEAAAALAAAAAAD6/wEAAAALAAAAAAD5/wEAAAALAAAAAAD4/wEAAAALAAAAAAD5/wIAAAALAAEAAAD6/wIAAAALAAEAAAD7/wIAAAALAAEAAAD8/wIAAAALAAEAAAADAAIAAAAIAAYAAAAHAAIAAAALAAEAAAAIAAIAAAAMAAEAAAAEAAEAAAAIAAUAAAAFAAEAAAAIAAUAAAAGAAEAAAAIAAUAAAAEAAIAAAAIAAYAAAAFAAIAAAAIAAYAAAAGAAIAAAAIAAYAAAA=")
 tile_set = SubResource("TileSet_7mycd")
+
+[node name="Sacrifice" type="RigidBody2D" parent="."]
+position = Vector2(23, 8)
+script = ExtResource("4_7mycd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sacrifice"]
+position = Vector2(0, -3)
+texture = ExtResource("1_0xm2m")
+region_enabled = true
+region_rect = Rect2(6, 73, 18, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sacrifice"]
+shape = SubResource("CircleShape2D_4c57u")
+
+[node name="DecayTimer" type="Timer" parent="Sacrifice"]
+
+[node name="Water" type="Area2D" parent="."]
+script = ExtResource("5_272bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(72, 32)
+shape = SubResource("RectangleShape2D_efxa6")
+
+[node name="CorpsePlatform" type="StaticBody2D" parent="."]
+script = ExtResource("6_5vw27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CorpsePlatform"]
+position = Vector2(49, 19)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7mycd")
+
+[node name="Sprite2D" type="Sprite2D" parent="CorpsePlatform"]
+position = Vector2(50, 19)
+rotation = 1.5707964
+texture = ExtResource("1_0xm2m")
+region_enabled = true
+region_rect = Rect2(679, 72, 17, 24)
+
+[node name="Timer" type="Timer" parent="CorpsePlatform"]
